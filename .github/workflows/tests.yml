@@ -1,0 +1,18 @@
+name: CI
+
+on: [push]
+
+jobs:
+  tests:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Homebrew
+        run: |
+          brew update-reset /usr/local/Homebrew
+          ln -s "$PWD" "/usr/local/Homebrew/Library/Taps/galderz/homebrew-tap"
+      - name: Run brew style
+        run: brew style galderz/tap
+      - name: Run brew test-bot
+        run: |
+          brew test-bot
