@@ -15,4 +15,8 @@ class Openlibm < Formula
     (lib/"pkgconfig").install Dir["lib/pkgconfig/*"]
     (include/"openlibm").install Dir["include/openlibm/*"]
   end
+
+  test do
+    system "make", "test"
+  end
 end
