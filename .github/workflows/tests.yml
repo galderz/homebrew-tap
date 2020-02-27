@@ -19,3 +19,9 @@ jobs:
       - name: Run brew test-bot
         run: |
           brew test-bot
+      - name: Run brew test
+        run: |
+          brew test openlibm
+      - name: Run brew audit
+        run: |
+          brew audit --strict openlibm
