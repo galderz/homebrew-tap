@@ -21,10 +21,10 @@ class Openlibm < Formula
       #include <stdio.h>
       #include "openlibm.h"
       int main (void) {
-        printf("%.1f\n", cos(acos(0.0)));
+        printf("%.1f", cos(acos(0.0)));
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}/openlibm", "-llz",
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}/openlibm",
            "-o", "test"
     assert_equal "0.0", shell_output("./test")
   end
