@@ -18,12 +18,12 @@ class Openlibm < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-    #include <stdio.h>
-    #include "openlibm.h"
-    int main (void) {
-      printf("%.1f\n", cos(acos(0.0)));
-    }
-  EOS
+      #include <stdio.h>
+      #include "openlibm.h"
+      int main (void) {
+        printf("%.1f\n", cos(acos(0.0)));
+      }
+    EOS
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-llz",
            "-o", "test"
     assert_equal "0.0", shell_output("./test")
