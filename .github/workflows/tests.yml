@@ -21,6 +21,7 @@ jobs:
           brew test-bot
       - name: Run brew test
         run: |
+          brew install openlibm
           brew test openlibm
       - name: Run brew audit
         run: |
