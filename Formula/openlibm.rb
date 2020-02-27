@@ -24,7 +24,7 @@ class Openlibm < Formula
         printf("%.1f\n", cos(acos(0.0)));
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-llz",
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}/openlibm", "-llz",
            "-o", "test"
     assert_equal "0.0", shell_output("./test")
   end
